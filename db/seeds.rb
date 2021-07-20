@@ -27,6 +27,6 @@
 20.times do |i|
   Supplier.create(nombre: Faker::Name.name, direccion: Faker::Address.street_address, telefono: Faker::PhoneNumber.cell_phone )
 =end
-Genero.create([descricao:'Feminino',descricao:'Masculino',descricao:'Não Binário'])
+Genero.create([{descricao:'Feminino'},{descricao:'Masculino'}])
 end
 
