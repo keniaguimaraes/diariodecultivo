@@ -1,0 +1,4 @@
+$('#modalEfeitos').modal('toggle');
+$('#efeitos_<%= @efeitocolateral.id %>').replaceWith(
+    '<tr id="efeito_<%= @efeitocolateral_.id %>" ><td><%= @efeitocolateral.descricao %></td><td><%= link_to 'editar', edit_efeitocolateral_path(@efeito), html_options = {class: "btn btn-info btn-xs", remote: true} %> <%= link_to "Deletar", @efeitocolateral, remote: true, method: :delete, data: { confirm: "¿Borrar categoria: #{@efeitocolateral.descricao}?"}, class: "btn btn-danger btn-xs" %></td></tr>'
+);

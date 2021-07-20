@@ -1,24 +1,14 @@
-# README
+# Medica Cannabis 
+## Diário de Acompanhamento do Uso Terapeutico de Cannabis
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Objetivos
+  Trabalho de Conclusão do v curso de Cannabis Medicinal da UNIFESP.
+### Colaborador
+ - Kênia Guimarães
 
-Things you may want to cover:
+### Tecnologias 
+    $ Ruby 2.6.0
+    $ Rails 6.0
+    $ PostgreSQL
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

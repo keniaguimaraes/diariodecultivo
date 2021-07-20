@@ -1,0 +1,2 @@
+module EfeitocolateralsHelper
+end

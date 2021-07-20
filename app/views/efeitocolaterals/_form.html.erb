@@ -1,0 +1,20 @@
+
+<%= form_for @efeitocolateral, remote: true do |f| %>
+  <div class="form-group">
+    <h4 class="control-label">Dados do Efeito:</h4>
+  </div>
+
+  <div class="item form-group<%= @efeitocolateral.errors[:descricao].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :descricao, "Efeito " %>
+    <div class="input-group">
+      <%= f.text_field :descricao, {:class=> "form-control", :placeholder=>"Descrição do Efeito..."} %>        
+      <%if @efeitocolateral.errors[:descricao].any? %>
+        <p class="bg-danger"><%= @efeitocolateral.errors[:nombre].to_s[/\w([^"]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+    <%= f.submit @efeitocolateral.new_record? ? "Criar Novo Efeito" : "Atualizar Efeito", :class => "btn btn-success"%>
+  </div>  
+<% end %>

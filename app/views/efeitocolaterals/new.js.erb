@@ -1,0 +1,8 @@
+// Add the dialog title
+$('#modal-efeitos-title').html("Novo Efeito");
+ 
+// Render the new form
+$('.modal-body-efeitos').html('<%= j render("form") %>');
+ 
+// Show the dynamic dialog
+$('#modalEfeitos').modal("show");

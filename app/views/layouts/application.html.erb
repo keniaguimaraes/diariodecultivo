@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>App Administrativa</title>
+    <title>Medica Cannabis</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,7 +22,7 @@
 
         <!-- Sidebar - Brand -->
         <%= link_to root_path, class: "sidebar-brand d-flex align-items-center justify-content-center"  do %>
-          <div class="sidebar-brand-text mx-3"> Sistema administrativo </div>
+          <div class="sidebar-brand-text mx-3">Medica Cannabis</div>
         <%end%>
 
         <!-- Divider -->
@@ -33,52 +33,42 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <div class="sidebar-heading">
-          Módulos
-        </div>
+   
 
         <li class="nav-item">
-          <%= link_to categories_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-tags"></i>
-            <span>Categorías</span>
+          <%= link_to root_path, class: "nav-link"  do %>
+            <i class="fas fa-fw fa-clipboard"></i>
+            <span>Dashboard</span>
           <%end%>
         </li>
-
+        <div class="sidebar-heading">
+        Parametrização
+        </div>
         <li class="nav-item">
-          <%= link_to products_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-shopping-basket"></i>
-            <span>Productos</span>
+          <%= link_to efeitocolaterals_path, class: "nav-link"  do %>
+            <i class="fas fa-fw fa-cannabis"></i>
+            <span>Efeito Colateral </span>
           <%end%>
         </li>
 
         <li class="nav-item">
           <%= link_to clients_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-users"></i>
-            <span>Clientes</span></a>
+            <i class="fas fa-fw fa-prescription-bottle-alt"></i>
+            <span>Tipo de Medicação</span></a>
           <%end%>
         </li>
-
+        <div class="sidebar-heading">
+        Diário
+        </div>
         <li class="nav-item">
-          <%= link_to suppliers_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-truck"></i>
-            <span>Proveedores</span>
-          <%end%>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to sales_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-shopping-cart"></i>
-            <span>Ventas</span>
-          <%end%>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to warehouses_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-pallet"></i>
-            <span>Almacén</span>
-          <%end%>
-        </li>
-
+        <%= link_to products_path, class: "nav-link"  do %>
+          <i class="fas fa-fw fa-notes-medical"></i>
+          <span>Acompanhamento</span>
+        <%end%>
+        <div class="sidebar-heading">
+          Links Utéis
+        </div>
+      </li>
       </ul>
       <!-- End of Sidebar -->
       <div id="content-wrapper" class="d-flex flex-column">

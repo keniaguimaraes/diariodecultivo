@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_024050) do
+ActiveRecord::Schema.define(version: 2021_07_19_212743) do
 
   create_table "categories", force: :cascade do |t|
     t.string "nombre"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 2020_07_07_024050) do
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "efeitocolaterals", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "generos", force: :cascade do |t|
+    t.string "genero"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -82,6 +94,12 @@ ActiveRecord::Schema.define(version: 2020_07_07_024050) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tipos", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -116,4 +134,14 @@ ActiveRecord::Schema.define(version: 2020_07_07_024050) do
     t.index ["supplier_id"], name: "index_warehouse_records_on_supplier_id"
   end
 
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "suppliers"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "sale_details", "products"
+  add_foreign_key "sale_details", "sales"
+  add_foreign_key "sales", "clients"
+  add_foreign_key "warehouse_details", "products"
+  add_foreign_key "warehouse_details", "warehouse_records"
+  add_foreign_key "warehouse_records", "products"
+  add_foreign_key "warehouse_records", "suppliers"
 end

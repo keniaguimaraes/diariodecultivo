@@ -1,0 +1,4 @@
+$('#modalEfeitos').modal('toggle');
+$('#tablaEfeitoss').append(
+    '<tr id="tipo_<%= @tipo.id %>" ><td><%= @tipo.descricao %></td><td><%= link_to 'editar', edit_tipo_path(@tipo), html_options = {class: "btn btn-info btn-xs", remote: true} %> <%= link_to "Deletar", @tipo, remote: true, method: :delete, data: { confirm: "¿Borrar categoria: #{@tipo.descricao}?"}, class: "btn btn-danger btn-xs" %></td></tr>'
+);

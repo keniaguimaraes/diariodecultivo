@@ -1,0 +1,8 @@
+// Add the dialog title
+$('#modal-tipos-title').html("Novo Tipo");
+ 
+// Render the new form
+$('.modal-body-tipos').html('<%= j render("form") %>');
+ 
+// Show the dynamic dialog
+$('#modalTipos').modal("show");

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+ 
+  get 'tipos/index'
+  get 'tipos/new'
+  get 'tipos/edit'
+  get 'tipos/create'
+  get 'tipos/update'
+  get 'tipos/destroy'
+  resources :efeitocolaterals
   devise_for :users
   root to: 'home#index'
   resources :categories, except: [:show]
