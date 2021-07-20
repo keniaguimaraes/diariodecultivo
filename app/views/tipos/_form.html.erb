@@ -1,12 +1,12 @@
 <%= form_for @tipo, remote: true do |f| %>
     <div class="form-group">
-      <h4 class="control-label">Dados do Tipo de Medicação:</h4>
+      <h4 class="control-label">Dados Tipo de Medicação:</h4>
     </div>
 
     <div class="item form-group<%= @tipo.errors[:descricao].any? ? ' has-error has-feedback' : '' %>">
-      <%= f.label :descricao, "descricao de Categoría: " %>
+      <%= f.label :descricao, "Descricao do Tipo: " %>
       <div class="input-group">
-        <%= f.text_field :descricao, {:class=> "form-control", :placeholder=>"..."} %>        
+        <%= f.text_field :descricao, {:class=> "form-control", :placeholder=>"Informação sobre tipo de medicação"} %>        
         <%if @tipo.errors[:descricao].any? %>
           <p class="bg-danger"><%= @tipo.errors[:descricao].to_s[/\w([^"]*)/] %></p>
         <% end %>
@@ -14,6 +14,6 @@
     </div>
 
     <div class="actions col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-      <%= f.submit @tipo.new_record? ? "Criar Tipo de Medicação" : "Atualizar Categoría", :class => "btn btn-success"%>
+      <%= f.submit @tipo.new_record? ? "Criar Tipo de Medicação" : "Atualizar Tipo de Medicação", :class => "btn btn-success"%>
     </div>  
 <% end %>

@@ -3,7 +3,7 @@
 <h1 class="h3 mb-2 text-gray-800">Tipo de Medicação</h1>
 
 <div>  
-  <%= link_to new_efeitocolateral_path, {remote: true, class: "btn btn-info", id: "anadir-categoria-btn"}  do %>
+  <%= link_to new_tipo_path, {remote: true, class: "btn btn-info", id: "anadir-categoria-btn"}  do %>
     <span class="fas fa-plus-square" ></span>
   <% end %>
 </div>
@@ -15,17 +15,17 @@
        <table id="tablaCategorias" class="table table-bordered" width="100%">
          <thead>
            <tr>
-             <th>Efeito</th>
+             <th>Tipo de Medicação</th>
              <th></th>
            </tr>
          </thead>
          <tbody>
-         <% @efeitocolaterals.each do |ef| %>
-            <tr id="efeito_<%= ef.id %>" >
+         <% @tipos.each do |ef| %>
+            <tr id="tipo_<%= ef.id %>" >
                 <td><%= ef.descricao %></td>
                 <td>
-                <%= link_to "Editar", edit_efeitocolateral_path(ef), html_options = {class: "btn btn-info btn-xs", remote: true} %>
-                <%= link_to 'Deletar', ef, remote: true, method: :delete, data: { confirm: "Deletar Efeito: #{ef.descricao}?"}, class: "btn btn-danger btn-xs" %>
+                <%= link_to "Editar", edit_tipo_path(ef), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                <%= link_to 'Deletar', ef, remote: true, method: :delete, data: { confirm: "Deletar Tipo de Medicação: #{ef.descricao}?"}, class: "btn btn-danger btn-xs" %>
                 </td>
             </tr>
          <% end %>
@@ -35,4 +35,4 @@
   </div>
 </div>
 
-<%= render 'modal_efeitos' %>
+<%= render 'modal_tipos' %>
