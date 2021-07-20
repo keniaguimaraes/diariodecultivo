@@ -9668,7 +9668,7 @@ a:focus {
 
 .bg-gradient-primary {
   background-color: #368d5d;
-  background-image: linear-gradient(180deg, #8d91a1 10%, #19b619 100%);
+  background-image: linear-gradient(180deg, #6dda06be 10%, #037a03 100%);
   background-size: cover;
 }
 
@@ -10584,10 +10584,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpV7OvTNnSjiSDwOSS--BP8zqVRUcEyv28kA&usqp=CAU/600x800");
- 
-  background-position: center;
-  background-size: cover;
+  background: url("https://masterplants.com.br/wp-content/uploads/2020/11/icone-cannabis-madicinal.png/600x800");background-position: center;background-size: cover;
 }
 
 .bg-register-image {

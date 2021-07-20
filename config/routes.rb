@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
- 
-  get 'tipos/index'
-  get 'tipos/new'
-  get 'tipos/edit'
-  get 'tipos/create'
-  get 'tipos/update'
-  get 'tipos/destroy'
+
   resources :efeitocolaterals
   devise_for :users
   root to: 'home#index'
   resources :categories, except: [:show]
   resources :clients, except: [:show]
   resources :suppliers, except: [:show]
+  resources :tipos, except: [:show]
   get 'buscador_proveedor/:termino', to: 'suppliers#buscador'
   post '/add_sup_almacen/', to: 'warehouses#add_proveedor'
 

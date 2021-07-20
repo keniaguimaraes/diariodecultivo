@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "sb-admin-2.min" %>
+    <%= favicon_link_tag %>
   </head>
   <body id="page-top">
     <div id="wrapper">
@@ -52,7 +53,7 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to clients_path, class: "nav-link"  do %>
+          <%= link_to tipos_path, class: "nav-link"  do %>
             <i class="fas fa-fw fa-prescription-bottle-alt"></i>
             <span>Tipo de Medicação</span></a>
           <%end%>
