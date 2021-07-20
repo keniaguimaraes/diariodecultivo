@@ -4,7 +4,8 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-
+require 'fog/core'
+Fog::Logger[:deprecation] = nil
 Bundler.require(*Rails.groups)
 
 module AppComercial
@@ -17,5 +18,6 @@ module AppComercial
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
   end
 end

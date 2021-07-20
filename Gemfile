@@ -47,7 +47,7 @@ gem 'font_awesome5_rails'
 
 gem 'carrierwave', '~> 2.0'
 gem "fog-google"
-gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "google-api-client"
 gem "mime-types"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 

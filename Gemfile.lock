@@ -342,7 +342,7 @@ DEPENDENCIES
   faker!
   fog-google
   font_awesome5_rails
-  google-api-client (> 0.8.5, < 0.9)
+  google-api-client
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
