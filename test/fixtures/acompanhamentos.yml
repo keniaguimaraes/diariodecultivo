@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medicamento: MyString
+  tipo_id: 1
+  inicio_tratamento: 2021-07-21 13:03:28
+  fim_tratamento: 2021-07-21 13:03:28
+  paciente: MyString
+  idade: 1
+  genero_id: 1
+  medico: MyString
+  crm: MyString
+  finalidade: MyText
+
+two:
+  medicamento: MyString
+  tipo_id: 1
+  inicio_tratamento: 2021-07-21 13:03:28
+  fim_tratamento: 2021-07-21 13:03:28
+  paciente: MyString
+  idade: 1
+  genero_id: 1
+  medico: MyString
+  crm: MyString
+  finalidade: MyText

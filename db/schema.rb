@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_212743) do
+ActiveRecord::Schema.define(version: 2021_07_21_160328) do
+
+  create_table "acompanhamentos", force: :cascade do |t|
+    t.string "medicamento"
+    t.integer "tipo_id"
+    t.datetime "inicio_tratamento"
+    t.datetime "fim_tratamento"
+    t.string "paciente"
+    t.integer "idade"
+    t.integer "genero_id"
+    t.string "medico"
+    t.string "crm"
+    t.text "finalidade"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "nombre"
@@ -31,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_212743) do
     t.string "descricao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "generos", force: :cascade do |t|
@@ -98,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_212743) do
     t.string "descricao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

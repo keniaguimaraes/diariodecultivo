@@ -7,9 +7,11 @@ class User < ApplicationRecord
   has_many :sales
   has_many :warehouse_records
   has_one :profile, dependent: :destroy
-
+  has_many :tipo
+  has_many :efeitocolateral
   after_create :set_profile
-
+  has_many:acompanhamento
+  
   def set_profile
     self.profile = Profile.create()
   end

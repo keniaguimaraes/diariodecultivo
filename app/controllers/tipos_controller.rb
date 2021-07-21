@@ -2,7 +2,7 @@ class TiposController < ApplicationController
   before_action :set_tipo, only: [:edit, :update, :destroy]
 
   def index
-    @tipos = Tipo.all
+    @tipos = Tipo.where("user_id =:user_id",{user_id:current_user.id}).all
   end
 
   def new
@@ -14,11 +14,11 @@ class TiposController < ApplicationController
 
   def create
     @tipo = Tipo.new(tipo_params)
-
+    @tipo.user_id = current_user.id
     respond_to do |format|
       if @tipo.save
+        format.html { redirect_to tipos_url }
         format.json { head :no_content }
-        format.js
       else
         format.json { render json: @tipo.errors.full_messages, status: :unprocessable_entity }
         format.js { render :new }
@@ -29,8 +29,8 @@ class TiposController < ApplicationController
   def update
     respond_to do |format|
       if @tipo.update(category_params)
+        format.html { redirect_to tipos_url }
         format.json { head :no_content }
-        format.js
       else
         format.json { render json: @tipo.errors.full_messages, status: :unprocessable_entity }
         format.js { render :edit }
@@ -51,8 +51,8 @@ class TiposController < ApplicationController
       @tipo = Tipo.find(params[:id])
     end
 
-    def category_params
-      params.require(:tipo).permit(:descricao)
+    def tipo_params
+      params.require(:tipo).permit(:descricao,:user_id)
     end
 
 end

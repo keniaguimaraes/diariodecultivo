@@ -1,0 +1,8 @@
+// Add the dialog title
+$('#modal-acompanhamentos-title').html("Novo Acompanhamento");
+ 
+// Render the new form
+$('.modal-body-acompanhamentos').html('<%= j render("form") %>');
+ 
+// Show the dynamic dialog
+$('#modalAcompanhamentos').modal("show");

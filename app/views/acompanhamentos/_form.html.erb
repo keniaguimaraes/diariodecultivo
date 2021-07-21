@@ -1,0 +1,80 @@
+<%= form_for @acompanhamento, remote: true do |f| %>
+    <div class="form-group">
+      <h4 class="control-label">Acompanhamento :</h4>
+    </div>
+
+    <div class="item form-group<%= @acompanhamento.errors[:medicamento].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :medicamento, "Rémedio: " %>
+      <div class="input-group">
+        <%= f.text_field :medicamento, {:class=> "form-control", :placeholder=>"Informe o Nome do Rémedio"} %>        
+        <%if @acompanhamento.errors[:medicamento].any? %>
+          <p class="bg-danger"><%= @acompanhamento.errors[:medicamento].to_s[/\w([^"]*)/] %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="item form-group<%=  @acompanhamento.errors[:tipo].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :tipo_id, "Tipo: " %>
+    <div class="input-group">
+    <%= collection_select(:acompanhamento, :tipo_id, @tipos, :id, :descricao, {:prompt => 'Selecione o tipo'}, { class: "form-control" })%>
+      <%if @acompanhamento.errors[:tipo].any? %>
+        <p class="bg-danger"><%= @acompanhamento.errors[:tipo].to_s[/\w([^"]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="item form-group<%= @acompanhamento.errors[:paciente].any? ? ' has-error has-feedback' : '' %>">
+  <%= f.label :paciente, "Nome do Paciente: " %>
+    <div class="input-group">
+      <%= f.text_field :paciente, {:class=> "form-control", :placeholder=>"Informe o Nome do Paciente"} %>        
+      <%if @acompanhamento.errors[:paciente].any? %>
+        <p class="bg-danger"><%= @acompanhamento.errors[:paciente].to_s[/\w([^"]*)/] %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="item form-group<%=  @acompanhamento.errors[:genero].any? ? ' has-error has-feedback' : '' %>">
+  <%= f.label :genero_id, "Genero: " %>
+  <div class="input-group">
+  <%= collection_select(:acompanhamento, :genero_id, @generos, :id, :genero, {:prompt => 'Selecione o genero'}, { class: "form-control" })%>
+    <%if @acompanhamento.errors[:genero].any? %>
+      <p class="bg-danger"><%= @acompanhamento.errors[:genero].to_s[/\w([^"]*)/] %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="item form-group<%= @acompanhamento.errors[:idade].any? ? ' has-error has-feedback' : '' %>">
+<%= f.label :idade, "Idade do Paciente: " %>
+  <div class="input-group">
+    <%= f.number_field :idade, {:class=> "form-control", :placeholder=>"Informe a Idade do Paciente"} %>        
+    <%if @acompanhamento.errors[:idade].any? %>
+      <p class="bg-danger"><%= @acompanhamento.errors[:idade].to_s[/\w([^"]*)/] %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="item form-group<%= @acompanhamento.errors[:medico].any? ? ' has-error has-feedback' : '' %>">
+<%= f.label :medico, "Nome do Médico: " %>
+  <div class="input-group">
+    <%= f.text_field :medico, {:class=> "form-control", :placeholder=>"Informe o Nome do Médico"} %>        
+    <%if @acompanhamento.errors[:medico].any? %>
+      <p class="bg-danger"><%= @acompanhamento.errors[:medico].to_s[/\w([^"]*)/] %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="item form-group<%= @acompanhamento.errors[:finalidade].any? ? ' has-error has-feedback' : '' %>">
+<%= f.label :medico, "Finalidade: " %>
+  <div class="input-group">
+    <%= f.text_field :finalidade, {:class=> "form-control", :placeholder=>"Anotações"} %>        
+    <%if @acompanhamento.errors[:finalidade].any? %>
+      <p class="bg-danger"><%= @acompanhamento.errors[:finalidade].to_s[/\w([^"]*)/] %></p>
+    <% end %>
+  </div>
+</div>
+    <div class="actions col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+      <%= f.submit @acompanhamento.new_record? ? "Criar Acompanhamento" : "Atualizar Acompanhamento", :class => "btn btn-success"%>
+    </div>  
+<% end %>

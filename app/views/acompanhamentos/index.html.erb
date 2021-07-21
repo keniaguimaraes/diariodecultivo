@@ -1,0 +1,43 @@
+<h1 class="h3 mb-2 text-gray-800">Acompanhamento</h1>
+<div>  
+  <%= link_to new_acompanhamento_path, { remote: true, class: "btn btn-info" }  do %>
+    <span class="fas fa-plus-square" ></span>
+  <% end %>
+</div>
+<br />
+<div class="card shadow mb-4">
+<div class="card-body">
+    <div class="table-responsive">
+    <table class="table table-bordered" id="tablaacompanhamento" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Paciente</th>
+            <th>Remedio</th>
+            <th>Tipo</th>
+            <th>Inicio tratamento</th>
+            <th>Fim tratamento</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @acompanhamentos.each do |prod| %>
+              <tr id="acompanhamento_<%= ef.id %>" >
+                <td><%= prod.paciente %></td>
+                <td><%= prod.remedio %></td>
+                <td><%= prod.tipo != nil ? prod.tipo.descricao : "No tiene categoria" %></td>
+                <td><%= prod.inicio_tratamento %></td>
+                <td><%= prod.inicio_tratamento %></td>
+                <td>
+                <%= link_to "Editar", edit_acompanhamento_path(prod), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                <%= link_to "Deletar", prod, remote: true, method: :delete, data: { confirm: "Deletar: #{prod.paciente}?"}, class: "btn btn-danger btn-xs" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+<%= render 'modal_acompanhamentos' %>
+
+

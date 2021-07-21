@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :products
   resources :sales
+  resources :acompanhamentos
+
   get 'buscador_productos/:termino', to: 'products#buscador'
   post 'add_item_venta', to: 'sales#add_item'
   get 'buscador_clientes/:termino', to: 'clients#buscador'

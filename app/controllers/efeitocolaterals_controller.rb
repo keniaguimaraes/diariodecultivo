@@ -3,7 +3,7 @@ class EfeitocolateralsController < ApplicationController
 
   # GET /efeitocolaterals or /efeitocolaterals.json
   def index
-    @efeitocolaterals = Efeitocolateral.all
+    @efeitocolaterals = Efeitocolateral.where("user_id =:user_id",{user_id:current_user.id}).all
   end
 
   # GET /efeitocolaterals/1 or /efeitocolaterals/1.json
@@ -21,12 +21,13 @@ class EfeitocolateralsController < ApplicationController
 
   # POST /efeitocolaterals or /efeitocolaterals.json
   def create
-    @efeitocolateral = Efeitocolateral.new(efeitocolateral_params)
 
+    @efeitocolateral = Efeitocolateral.new(efeitocolateral_params)
+    @efeitocolateral.user_id = current_user.id
     respond_to do |format|
       if @efeitocolateral.save
-        format.html { redirect_to @efeitocolateral, notice: "Efeitocolateral was successfully created." }
-        format.json { render :show, status: :created, location: @efeitocolateral }
+        format.html { redirect_to efeitocolaterals_url }
+        format.json { head :no_content }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @efeitocolateral.errors, status: :unprocessable_entity }
@@ -40,8 +41,8 @@ class EfeitocolateralsController < ApplicationController
   def update
     respond_to do |format|
       if @efeitocolateral.update(efeitocolateral_params)
-        format.html { redirect_to @efeitocolateral, notice: "Efeitocolateral was successfully updated." }
-        format.json { render :show, status: :ok, location: @efeitocolateral }
+        format.html { redirect_to efeitocolaterals_url }
+        format.json { head :no_content }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @efeitocolateral.errors, status: :unprocessable_entity }
@@ -66,6 +67,6 @@ class EfeitocolateralsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def efeitocolateral_params
-      params.require(:efeitocolateral).permit(:descricao)
+      params.require(:efeitocolateral).permit(:descricao,:user_id)
     end
 end
