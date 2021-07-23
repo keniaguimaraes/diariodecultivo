@@ -1,4 +1,16 @@
 <%= form_for @acompanhamento, remote: true do |f| %>
+
+    <% if  @acompanhamento.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize( @acompanhamento.errors.count, "error") %> prohibited this avaliacaoprof from being saved:</h2>
+
+        <ul>
+        <%  @acompanhamento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="form-group">
       <h4 class="control-label">Acompanhamento :</h4>
     </div>
@@ -51,6 +63,27 @@
     <%= f.number_field :idade, {:class=> "form-control", :placeholder=>"Informe a Idade do Paciente"} %>        
     <%if @acompanhamento.errors[:idade].any? %>
       <p class="bg-danger"><%= @acompanhamento.errors[:idade].to_s[/\w([^"]*)/] %></p>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="item form-group<%=  @acompanhamento.errors[:cid].any? ? ' has-error has-feedback' : '' %>">
+<%= f.label :cid_id, "CID: " %>
+<div class="input-group">
+<%= collection_select(:acompanhamento, :cid_id, @cids, :id, :doenca, {:prompt => 'Selecione o CID'}, { class: "form-control" })%>
+  <%if @acompanhamento.errors[:cid].any? %>
+    <p class="bg-danger"><%= @acompanhamento.errors[:cid].to_s[/\w([^"]*)/] %></p>
+  <% end %>
+</div>
+</div>
+
+<div class="item form-group<%= @acompanhamento.errors[:inicio_tratamento].any? ? ' has-error has-feedback' : '' %>">
+<%= f.label :idade, "Inicio Tratamento: " %>
+  <div class="input-group">
+    <%= f.date_field :inicio_tratamento, {:class=> "form-control", :placeholder=>"Informe o inicio do tratamento"} %>        
+    <%if @acompanhamento.errors[:inicio_tratamento].any? %>
+      <p class="bg-danger"><%= @acompanhamento.errors[:inicio_tratamento].to_s[/\w([^"]*)/] %></p>
     <% end %>
   </div>
 </div>

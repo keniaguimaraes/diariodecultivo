@@ -1,0 +1,88 @@
+<%= form_for @diario, remote: true do |f| %>
+  
+    <div class="form-group">
+      <h4 class="control-label">Diário:</h4>
+    </div>
+
+    <div class="item form-group<%= @diario.errors[:dosagem].any? ? ' has-error has-feedback' : '' %>">
+    <%= f.label :dosagem, "Dosagem: " %>
+      <div class="input-group">
+        <%= f.text_field :dosagem, {:class=> "form-control", :placeholder=>"Ex: Duas gotas, 5 ML"} %>        
+        <%if @diario.errors[:dosagem].any? %>
+          <p class="bg-danger"><%= @diario.errors[:dosagem].to_s[/\w([^"]*)/] %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="item form-group<%=  @diario.errors[:administracao].any? ? ' has-error has-feedback' : '' %>">
+      <%= f.label :administracao_id, "Administracao: " %>
+      <div class="input-group">
+        <%= collection_select(:diario, :administracao_id, @administracaos, :id, :descricao, {:prompt => 'Selecione a Forma de Administracao'}, { class: "form-control" })%>
+        <%if @diario.errors[:administracao].any? %>
+          <p class="bg-danger"><%= @diario.errors[:administracao].to_s[/\w([^"]*)/] %></p>
+        <% end %>
+      </div>
+    </div>
+
+     <%= f.label :cid_id, "Efeitos Colateral " %>
+      <div class="input-group">
+          <% @efeitos = Efeitocolateral.all 
+            @efeitos.each do |efeito| %>
+              <div class="col"> 
+                <div class="badge" id=<%=efeito.id.to_s%>  data-tag="<%=efeito.descricao%>" ><%=efeito.descricao%></div>
+              </div>
+          <%end%>
+      </div>
+ 
+      <div class="item form-group<%= @diario.errors[:anotacoes].any? ? ' has-error has-feedback' : '' %>">
+      <%= f.label :anotacoes, "Anotações " %>
+        <div class="input-group">
+          <%= f.text_field :anotacoes, {:class=> "form-control", :placeholder=>"Informe suas anotações"} %>        
+          <%if @diario.errors[:anotacoes].any? %>
+            <p class="bg-danger"><%= @diario.errors[:anotacoes].to_s[/\w([^"]*)/] %></p>
+          <% end %>
+        </div>
+      </div>
+    <div class="actions col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+      <%= f.submit @diario.new_record? ? "Criar Diario" : "Atualizar Diario", :class => "btn btn-success"%>
+    </div>  
+
+<% end %>
+
+<style>
+.badge{ cursor:pointer;}
+</style>
+
+<script>
+$(".badge").click(function(e){
+  e.preventDefault()
+  
+  var existe_componente = document.getElementsByName('tags[]').length;
+  if (existe_componente > 0){
+      
+      var nome  = $(this).attr('id');
+      var achou = false;
+      
+       $.each($('input.taghidden'),function(i, field) {
+        if($(this).attr("type")=="hidden") {
+
+          if(field.value==nome){
+              achou = true;}
+        }         
+      });
+      
+       if (achou==false) { 
+            $(this).css({"background":"green"})
+            $(this).append('<input type="hidden" class="taghidden" id="tag'+$(this).attr('id')+'" name="tags[]" value="'+$(this).attr('id')+'">') }
+      else{
+            $(this).css({"background":"#d3d3d3"})  
+            var id ="tag"+ $(this).attr('id');
+            var j = document.getElementById(id);
+            j.remove();
+      }  
+
+  }else{
+          $(this).css({"background":"green"})
+          $(this).append('<input type="hidden" class="taghidden" id="tag'+$(this).attr('id')+'" name="tags[]" value="'+$(this).attr('id')+'">') }
+});
+</script>

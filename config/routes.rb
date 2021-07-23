@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :efeitocolaterals
   devise_for :users
   root to: 'home#index'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   resources :products
   resources :sales
   resources :acompanhamentos
+  resources :diarios
 
   get 'buscador_productos/:termino', to: 'products#buscador'
   post 'add_item_venta', to: 'sales#add_item'

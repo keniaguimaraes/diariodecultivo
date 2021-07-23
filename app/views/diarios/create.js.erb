@@ -1,0 +1,4 @@
+$('#modalDiarios').modal('toggle');
+$('#tablaDiarios').append(
+    '<tr id="diario_<%= @diario.id %>" ><td><%= @diario.dosagem %></td><td><%= @diario.administracao != nil ? @diario.administracao.descricao : "Não existe tipo de medicamento" %></td></tr>'
+);

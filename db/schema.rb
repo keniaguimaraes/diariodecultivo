@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_160328) do
+ActiveRecord::Schema.define(version: 2021_07_22_210150) do
 
   create_table "acompanhamentos", force: :cascade do |t|
     t.string "medicamento"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2021_07_21_160328) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cid_id"
+  end
+
+  create_table "administracaos", force: :cascade do |t|
+    t.string "descricao"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -33,6 +40,13 @@ ActiveRecord::Schema.define(version: 2021_07_21_160328) do
     t.string "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cids", force: :cascade do |t|
+    t.string "codigo"
+    t.string "doenca"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clients", force: :cascade do |t|
@@ -43,11 +57,28 @@ ActiveRecord::Schema.define(version: 2021_07_21_160328) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "diarios", force: :cascade do |t|
+    t.integer "acompanhamento_id"
+    t.string "dosagem"
+    t.integer "administracao_id"
+    t.integer "efeitodiario_id"
+    t.text "anotacoes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "efeitocolaterals", force: :cascade do |t|
     t.string "descricao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "efeitodiarios", force: :cascade do |t|
+    t.integer "diario_id"
+    t.integer "efeito_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "generos", force: :cascade do |t|

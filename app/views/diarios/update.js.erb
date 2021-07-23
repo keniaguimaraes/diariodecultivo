@@ -1,0 +1,7 @@
+$('#modalDiario).modal('toggle');
+$('#diario<%= @diario.id %>').replaceWith(
+    '<tr id="tipo_<%= @acompanhamento.id %>" ><td><%= @acompanhamento.medicamento %></td><td><%= @acompanhamento.tipo != nil ? @acompanhamento.tipo.descricao : "No tiene categoria" %></td><td><%= @acompanhamento.genero != nil ? @acompanhamento.genero.descricao : "No tiene categoria" %></td><td><%= @acompanhamento.paciente %></td><td><%= link_to 'editar', edit_tipo_path(@acompanhamento), html_options = {class: "btn btn-info btn-xs", remote: true} %> <%= link_to "Deletar", @acompanhamento, remote: true, method: :delete, data: { confirm: "¿Borrar categoria: #{@acompanhamento.descricao}?"}, class: "btn btn-danger btn-xs" %></td></tr>'
+
+);
+
+

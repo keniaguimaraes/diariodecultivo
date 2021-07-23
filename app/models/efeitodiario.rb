@@ -1,0 +1,3 @@
+class Efeitodiario < ApplicationRecord
+   
+end

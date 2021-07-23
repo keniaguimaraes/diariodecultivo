@@ -2,21 +2,21 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="id">ID</label>
-      <input type="text" class="form-control" value="<%= @venta.id %>">
+    
     </div>
     <div class="form-group col-md-6">
       <label for="fecha">Fecha</label>
-      <input type="text" class="form-control" value="<%= @venta.created_at.strftime("%d-%m-%Y") %>">
+     
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="id">Monto de venta</label>
-      <input type="text" class="form-control" value="<%= @venta.importe %>">
+    
     </div>
     <div class="form-group col-md-6">
       <label for="vendedor">Vendedor</label>
-      <input type="text" class="form-control" value="<%= @venta.user.email %>">
+   
     </div>
   </div>
 </form>

@@ -1,0 +1,40 @@
+<h1 class="h3 mb-2 text-gray-800">Diario</h1>
+<div>  
+  <%= link_to new_diario_path, { remote: true, class: "btn btn-info" }  do %>
+    <span class="fas fa-plus-square" ></span>
+  <% end %>
+</div>
+<br />
+<div class="card shadow mb-4">
+<div class="card-body">
+    <div class="table-responsive">
+    <table class="table table-bordered" id="tablaacompanhamento" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            
+            <th>Acompanhamentos</th>
+            <th>Dosagem</th>
+         
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @diarios.each do |prod| %>
+              <tr id="diario_<%= prod.id %>" >
+                <td><%= prod.acompanhamento_id %></td>
+                <td><%= prod.dosagem %></td>
+                
+                <td>
+                <%= link_to "Editar", edit_diario_path(prod), html_options = {class: "btn btn-warning btn-xs", remote: true} %>
+                <%= link_to "Deletar", prod, remote: true, method: :delete, data: { confirm: "Deletar: #{prod.dosagem}?"}, class: "btn btn-danger btn-xs" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+<%= render 'modal_diarios' %>
+
+
