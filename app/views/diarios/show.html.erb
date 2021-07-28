@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+<h1 class="h3 mb-2 text-gray-800">Diário de  Acompanhamento</h1>
+<br>
+<br> 
+<div class="card shadow mb-4">
+<!-- Card Header - Accordion -->
+<a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+    <h6 class="m-0 font-weight-bold text-primary">Detalhes</h6>
+</a>
+<!-- Card Content - Collapse -->
+<div class="collapse show" id="collapseCardExample">
+    <div class="card-body">
+    
+          <div class="row">
+            <div class="col s12 m9 lg9 offset-m2">
+                <div class="card-panel ">
+                  
+                  <div class="row">
+                    <div class="col s12 m8 lg8 ">
+                     <strong><b>Paciente: </b></strong>
+                      <%= @diario.acompanhamento.paciente%>
+                    </div>
+                    <div class="col s12 m8 lg8 ">
+                    <strong><b>Data: </b></strong>
+                    <%= @diario.created_at.strftime("%d/%m/%Y")  %>
+                  </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col s12 m8 lg8 ">
+                      <strong><b>Dosagem: </b></strong>
+                      <%= @diario.dosagem%>
+                    </div>
+                    <div class="col s12 m8 lg8 ">
+                      <strong><b>Administracao: </b></strong>
+                      <%= @diario.administracao.descricao %>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                  <div class="col s12 m8 lg8 ">
+                    <strong><b>Anotações: </b></strong>
+                    <%= @diario.anotacoes %>
+                  </div>
+                 </div>
+
+                   <div class="row">
+                      <div class="col s12 m8 lg8"> 
+                         <strong><b>Tags relacionadas:</b></strong><div><p>
+                          <% @tags = Efeitodiario.where("diario_id =:diario_id",{diario_id:@diario.id}).all
+                            @tags.each do |tags| %>
+                              <div class="col"> 
+                              <div class="badge badge-success" > <%= tags.efeitocolateral.descricao %></div>
+                              </div>
+                            <%end%>
+                      </div>
+
+                     
+                </div>
+
+              
+              </div>  
+          </div>    
+    </div>
+</div>
+</div>

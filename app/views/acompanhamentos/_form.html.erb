@@ -3,7 +3,6 @@
     <% if  @acompanhamento.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize( @acompanhamento.errors.count, "error") %> prohibited this avaliacaoprof from being saved:</h2>
-
         <ul>
         <%  @acompanhamento.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,6 +10,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="form-group">
       <h4 class="control-label">Acompanhamento :</h4>
     </div>

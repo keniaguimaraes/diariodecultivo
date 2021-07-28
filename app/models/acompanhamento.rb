@@ -3,4 +3,6 @@ class Acompanhamento < ApplicationRecord
     belongs_to:tipo
     belongs_to:user
     belongs_to:cid
+    has_many:diario
+
 end

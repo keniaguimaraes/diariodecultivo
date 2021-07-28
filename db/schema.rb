@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_210150) do
     t.integer "acompanhamento_id"
     t.string "dosagem"
     t.integer "administracao_id"
-    t.integer "efeitodiario_id"
+    t.date "data"
     t.text "anotacoes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,12 +71,11 @@ ActiveRecord::Schema.define(version: 2021_07_22_210150) do
     t.string "descricao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
   create_table "efeitodiarios", force: :cascade do |t|
     t.integer "diario_id"
-    t.integer "efeito_id"
+    t.integer "efeitocolateral_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -146,7 +145,6 @@ ActiveRecord::Schema.define(version: 2021_07_22_210150) do
     t.string "descricao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

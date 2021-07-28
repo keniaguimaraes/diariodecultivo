@@ -24,7 +24,6 @@
             <tr id="tipo_<%= ef.id %>" >
                 <td><%= ef.descricao %></td>
                 <td>
-                <%= link_to "Editar", edit_tipo_path(ef), html_options = {class: "btn btn-info btn-xs", remote: true} %>
                 <%= link_to "Deletar", ef, remote: true, method: :delete, data: { confirm: "Deletar Tipo de Medicação: #{ef.descricao}?"}, class: "btn btn-danger btn-xs" %>
                 </td>
             </tr>

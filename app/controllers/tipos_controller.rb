@@ -2,7 +2,9 @@ class TiposController < ApplicationController
   before_action :set_tipo, only: [:edit, :update, :destroy]
 
   def index
-    @tipos = Tipo.where("user_id =:user_id",{user_id:current_user.id}).all
+    add_breadcrumb "Pagina Principal", root_path, :title => "Voltar para a Página principal"
+    add_breadcrumb "Tipos de Medicação"
+    @tipos = Tipo.all
   end
 
   def new
@@ -14,7 +16,7 @@ class TiposController < ApplicationController
 
   def create
     @tipo = Tipo.new(tipo_params)
-    @tipo.user_id = current_user.id
+   # @tipo.user_id = current_user.id
     respond_to do |format|
       if @tipo.save
         format.html { redirect_to tipos_url }

@@ -3,7 +3,10 @@ class EfeitocolateralsController < ApplicationController
 
   # GET /efeitocolaterals or /efeitocolaterals.json
   def index
-    @efeitocolaterals = Efeitocolateral.where("user_id =:user_id",{user_id:current_user.id}).all
+    add_breadcrumb "Pagina Principal", root_path, :title => "Voltar para a Página principal"
+    add_breadcrumb "Efeitos Colaterais"
+  
+    @efeitocolaterals = Efeitocolateral.all
   end
 
   # GET /efeitocolaterals/1 or /efeitocolaterals/1.json
@@ -23,7 +26,7 @@ class EfeitocolateralsController < ApplicationController
   def create
 
     @efeitocolateral = Efeitocolateral.new(efeitocolateral_params)
-    @efeitocolateral.user_id = current_user.id
+    #@efeitocolateral.user_id = current_user.id
     respond_to do |format|
       if @efeitocolateral.save
         format.html { redirect_to efeitocolaterals_url }
@@ -67,6 +70,6 @@ class EfeitocolateralsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def efeitocolateral_params
-      params.require(:efeitocolateral).permit(:descricao,:user_id)
+      params.require(:efeitocolateral).permit(:descricao)
     end
 end

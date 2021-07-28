@@ -5,6 +5,8 @@ class AcompanhamentosController < ApplicationController
   before_action :set_cid, only: [:new, :edit, :create]
 
   def index
+    add_breadcrumb "Pagina Principal", root_path, :title => "Voltar para a Página principal"
+    add_breadcrumb "Meus acompanhamentos"
     @acompanhamentos = Acompanhamento.where("user_id =:user_id",{user_id:current_user.id}).all
   end
 
@@ -16,6 +18,9 @@ class AcompanhamentosController < ApplicationController
   end
 
   def show
+   
+    add_breadcrumb "Meus acompanhamentos", acompanhamentos_path, :title => "Voltar para a Página principal"
+    add_breadcrumb "Exibindo acompanhamento"
     @acompanhamento = Acompanhamento.find(params[:id])
     @diarios = Diario.where("acompanhamento_id =:acompanhamento_id",{acompanhamento_id:params[:id]}).all
   end
@@ -24,11 +29,9 @@ class AcompanhamentosController < ApplicationController
     @acompanhamento = Acompanhamento.new(acompanhamento_params)
     @acompanhamento.user_id = current_user.id
 
-
     respond_to do |format|
       if @acompanhamento.save
-
-        format.html { redirect_to acompanhamentos_url, notice: 'A Avaliação foi Realizada com Sucesso!'}
+        format.html { redirect_to "/acompanhamentos/"+ @acompanhamento.id.to_s , notice: 'O acompnhamento foi incluido com sucesso!'}
         format.json { head :no_content }
       else
         format.json { render json: @acompanhamento.errors.full_messages, status: :unprocessable_entity }

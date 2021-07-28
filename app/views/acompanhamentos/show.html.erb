@@ -1,12 +1,11 @@
-
+<p id="notice"><%= notice %></p>
 <h1 class="h3 mb-2 text-gray-800">Diário de  Acompanhamento</h1>
 <br />
 <div class="table-responsive">
-     <table class="table table-bordered table-dark" id="tablaacompanhamento" width="100%" cellspacing="0">
+     <table class="table table-bordered table-info" id="tablaacompanhamento" width="100%" cellspacing="0">
 
         <tbody>
             </tr>
-            <td>Paciente: <%=@acompanhamento.id%></td>  
             <td>Paciente: <%=@acompanhamento.paciente%></td>     
             <td>Remédio: <%=@acompanhamento.medicamento%></td>  
             <td>Inicio Tratamento: <%=@acompanhamento.inicio_tratamento.strftime("%d/%m/%Y")%></td>   
@@ -17,33 +16,33 @@
 </div>
 
 <div>  
-  <%= link_to new_diario_path(:acompanha =>@acompanhamento.id), { remote: true, class: "btn btn-info" }  do %>
+  <%= link_to new_diario_path(acompanhamento_id:@acompanhamento.id),{ remote: true, class: "btn btn-info" }  do %>
     <span class="fas fa-plus-square" ></span>
   <% end %>
-</div>
-
-<br />
+<br> 
+<br> 
 <%semana=0%>
-<% @diarios.each do |diario| %>
-  <%semana=semana+1%>
 
-    <div class="card shadow mb-4">
-      <div class="card-body">
+  <div class="table-responsive">
+  <table>
+  <tr>
+  <% @diarios.each do |diario| %>
+    <%semana=semana+1%>
+  <td>
         <div class="table-responsive">
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
+            <div class="12 m12 lg12">
+              <div class="card border-left-success shadow h-100 py-2">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-md font-weight-bold text-info text-uppercase mb-1">Dia: <%=semana%></div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h2 mb-0 mr-3 font-weight-bold text-gray-800">Dosagem: <%= diario.dosagem %> </div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Dosagem: <%= diario.dosagem %> </div>
                                 </div>
-                            
                             </div>
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><%= link_to "Editar", edit_diario_path(diario), html_options = {class: "", remote: true} %></div>
-
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><%= link_to "Visualizar", diario_path(diario) %></div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><%= link_to "Deletar", diario, remote: true, method: :delete, data: { confirm: "DeletaR?"}, class: "" %></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -51,8 +50,12 @@
                     </div>
                   </div>
               </div>
-      </div>
+ 
+    </div>
+    <td>
+    <% end %>
+    <tr>
+    <table>
     </div>
 
-<% end %>
-<%= render 'modal_diarios' %>
+<%= render 'modal_diarios'  %>

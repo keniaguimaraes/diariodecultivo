@@ -1,8 +1,14 @@
 <%= form_for @diario, remote: true do |f| %>
-  
-    <div class="form-group">
-      <h4 class="control-label">Diário:</h4>
-    </div>
+    <% if @diario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@diario.errors.count, "error") %> prohibited this comentar from being saved:</h2>
+          <ul>
+          <% @diario.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="item form-group<%= @diario.errors[:dosagem].any? ? ' has-error has-feedback' : '' %>">
     <%= f.label :dosagem, "Dosagem: " %>
@@ -24,6 +30,8 @@
       </div>
     </div>
 
+ 
+
      <%= f.label :cid_id, "Efeitos Colateral " %>
       <div class="input-group">
           <% @efeitos = Efeitocolateral.all 
@@ -33,6 +41,9 @@
               </div>
           <%end%>
       </div>
+
+      <%= f.hidden_field:acompanhamento_id,:value =>params[:acompanhamento_id] %> 
+       
  
       <div class="item form-group<%= @diario.errors[:anotacoes].any? ? ' has-error has-feedback' : '' %>">
       <%= f.label :anotacoes, "Anotações " %>
@@ -50,7 +61,8 @@
 <% end %>
 
 <style>
-.badge{ cursor:pointer;}
+.badge{ cursor:pointer;
+}
 </style>
 
 <script>

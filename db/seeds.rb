@@ -1,9 +1,9 @@
 
 
-User.create([{email:'kenia@gmail.com',password:'123456'}])
+#User.create([{email:'kenia@gmail.com',password:'123456'}])
 Genero.create([{genero:'Feminino'},{genero:'Masculino'}])
-Efeitocolateral.create([{descricao:'Sonolência', user_id:1},{descricao:'Fome', user_id:1},{descricao:'Dor de Cabeça', user_id:1},{descricao:'Tremor', user_id:1},{descricao:'Tontura', user_id:1}])
-Tipo.create([{descricao:'Oléo', user_id:1},{descricao:'Spray', user_id:1},{descricao:'Pomada', user_id:1}])
+Efeitocolateral.create([{descricao:'Sonolência'},{descricao:'Fome'},{descricao:'Dor de Cabeça'},{descricao:'Tremor'},{descricao:'Tontura'}])
+Tipo.create([{descricao:'Óleo'},{descricao:'Spray'},{descricao:'Pomada'}])
 Administracao.create([{descricao:'Oral'},{descricao:'Nasal'},{descricao:'Pele'}])
 
 Cid.create([
@@ -5991,7 +5991,7 @@ Cid.create([
 {codigo:'P07.2',doenca:'Imaturidade extrema'},
 {codigo:'P07.3',doenca:'Outros recém-nascidos de pré-termo'},
 {codigo:'P08.0',doenca:'Recém-nascido de tamanho excessivamente grande'}])
-=begin
+Cid.create([
 {codigo:'P08.1',doenca:'Outros recém-nascidos grandes para a idade gestacional'},
 {codigo:'P08.2',doenca:'Recém-nascido pós-termo, não-grande para a idade gestacional'},
 {codigo:'P10.0',doenca:'Hemorragia subdural devida a traumatismo de parto'},
@@ -6554,7 +6554,8 @@ Cid.create([
 {codigo:'Q45.8',doenca:'Outras malformações congênitas especificadas do aparelho digestivo'},
 {codigo:'Q45.9',doenca:'Malformação congênita não especificada do aparelho digestivo'},
 {codigo:'Q50.0',doenca:'Ausência congênita dos ovários'},
-{codigo:'Q50.1',doenca:'Cisto ovariano de desenvolvimento'},
+{codigo:'Q50.1',doenca:'Cisto ovariano de desenvolvimento'}])
+Cid.create([
 {codigo:'Q50.2',doenca:'Torsão congênita do ovário'},
 {codigo:'Q50.3',doenca:'Outras malformações congênitas do ovário'},
 {codigo:'Q50.4',doenca:'Cisto embrionário da trompa de Falópio'},
@@ -6863,7 +6864,8 @@ Cid.create([
 {codigo:'Q95.8',doenca:'Outros rearranjos e marcadores equilibrados'},
 {codigo:'Q95.9',doenca:'Rearranjos e marcadores equilibrados não especificados'},
 {codigo:'Q96.0',doenca:'Cariótipo 45, X'},
-{codigo:'Q96.1',doenca:'Cariótipo 46, X iso (Xq)'},
+{codigo:'Q96.1',doenca:'Cariótipo 46, X iso (Xq)'}])
+Cid.create([
 {codigo:'Q96.2',doenca:'Cariótipo 46, X com cromossomo sexual anormal, salvo iso (Xq)'},
 {codigo:'Q96.3',doenca:'Mosaicismo cromossômico, 45, X/46, XX ou XY'},
 {codigo:'Q96.4',doenca:'Mosaicismo cromossômico, 45, X/outra(s) linhagens celular(es) com cromossomo sexual anormal'},
@@ -8605,7 +8607,8 @@ Cid.create([
 {codigo:'V21.2',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, motociclista não especificado traumatizado em acidente não-de-trânsito'},
 {codigo:'V21.3',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, pessoa traumatizado ao subir ou descer do veículo'},
 {codigo:'V21.4',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, condutor traumatizado em um acidente de trânsito'},
-{codigo:'V21.5',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, passageiro traumatizado em um acidente de trânsito'},
+{codigo:'V21.5',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, passageiro traumatizado em um acidente de trânsito'}])
+Cid.create([
 {codigo:'V21.9',doenca:'Motociclista traumatizado em colisão com um veículo a pedal, motociclista não especificado traumatizado em um acidente de trânsito'},
 {codigo:'V22.0',doenca:'Motociclista traumatizado em colisão com um veículo a motor de duas ou três rodas, condutor traumatizado em acidente não-de-trânsito'},
 {codigo:'V22.1',doenca:'Motociclista traumatizado em colisão com um veículo a motor de duas ou três rodas, passageiro traumatizado em acidente não-de-trânsito'},
@@ -9139,7 +9142,8 @@ Cid.create([
 {codigo:'V82.1',doenca:'Ocupante de um bonde [carro elétrico] traumatizado em uma colisão com um veículo a motor em um acidente de trânsito'},
 {codigo:'V82.2',doenca:'Ocupante de um bonde [carro elétrico] traumatizado em uma colisão com ou atingido por material rodante'},
 {codigo:'V82.3',doenca:'Ocupante de um bonde [carro elétrico] traumatizado em uma colisão com outro objeto'},
-{codigo:'V82.4',doenca:'Pessoa traumatizada ao subir ou descer de um bonde [carro elétrico]'},
+{codigo:'V82.4',doenca:'Pessoa traumatizada ao subir ou descer de um bonde [carro elétrico]'}])
+Cid.create([
 {codigo:'V82.5',doenca:'Ocupante de um bonde [carro elétrico] traumatizado devido a uma queda no interior do mesmo'},
 {codigo:'V82.6',doenca:'Ocupante de um bonde [carro elétrico] traumatizado devido a uma queda do mesmo'},
 {codigo:'V82.7',doenca:'Ocupante de um bonde [carro elétrico] traumatizado devido a um descarrilhamento sem colisão antecedente'},
@@ -10356,7 +10360,8 @@ Cid.create([
 {codigo:'X21.8',doenca:'Contato com aranhas venenosas, outros locais especificados'},
 {codigo:'X21.9',doenca:'Contato com aranhas venenosas, local não especificado'},
 {codigo:'X22.0',doenca:'Contato com escorpiões, residência'},
-{codigo:'X22.1',doenca:'Contato com escorpiões, habitação coletiva'},
+{codigo:'X22.1',doenca:'Contato com escorpiões, habitação coletiva'}])
+Cid.create([
 {codigo:'X22.2',doenca:'Contato com escorpiões, escolas, outras instituições e áreas de administração pública'},
 {codigo:'X22.3',doenca:'Contato com escorpiões, área para a prática de esportes e atletismo'},
 {codigo:'X22.4',doenca:'Contato com escorpiões, rua e estrada'},
@@ -12443,4 +12448,3 @@ Cid.create([
 {codigo:'Z99.3',doenca:'Dependência de cadeira de rodas'},
 {codigo:'Z99.8',doenca:'Dependência de outras máquinas e aparelhos capacitantes'},
 {codigo:'Z99.9',doenca:'Dependência de máquina e aparelho capacitante não especificado'}])
-=end
