@@ -15,7 +15,6 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag %>
 
-  
   </head>
   <body id="page-top">
     <div id="wrapper">
@@ -67,9 +66,18 @@
         <div class="sidebar-heading">
           Links Utéis
         </div>
+        <%= link_to "https://caec.diadema.unifesp.br/eventos/v-curso-cannabis-medicinal", class: "nav-link"  do %>
+          <i class="fas fa-fw fa-link"></i>
+          <span>V Curso Cannabis</span>
+        <%end%>
+        <%= link_to "https://www.youtube.com/c/MovReCam/videos", class: "nav-link"  do %>
+          <i class="fas fa-fw fa-link"></i>
+          <span>MovReCam</span>
+        <%end%>
       </li>
       </ul>
       <!-- End of Sidebar -->
+      
       <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
           <!-- Topbar -->
@@ -80,17 +88,7 @@
               <i class="fa fa-bars"></i>
             </button>
 
-            <!-- Topbar Search 
-            <%= form_tag( '/search', options = { class: "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }) do %>
-              <div class="input-group">
-                <%= text_field_tag("termino", value = nil, options = { class: "form-control bg-light border-0 small", placeholder: "Search for..."}) %>
-                <div class="input-group-append">
-                  <%= submit_tag(value = "Buscar", options = { class: "btn btn-primary" }) do %>
-                    <i class="fas fa-search fa-sm"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>-->
+      
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 

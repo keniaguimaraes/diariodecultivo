@@ -16,16 +16,14 @@
          <thead>
            <tr>
              <th>Tipo de Medicação</th>
-             <th></th>
+    
            </tr>
          </thead>
          <tbody>
          <% @tipos.each do |ef| %>
             <tr id="tipo_<%= ef.id %>" >
                 <td><%= ef.descricao %></td>
-                <td>
-                <%= link_to "Deletar", ef, remote: true, method: :delete, data: { confirm: "Deletar Tipo de Medicação: #{ef.descricao}?"}, class: "btn btn-danger btn-xs" %>
-                </td>
+              
             </tr>
          <% end %>
          </tbody>

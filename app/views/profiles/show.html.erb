@@ -1,32 +1,36 @@
+<div class="card shadow mb-4">
+<div class="card-body">
 <form>
   <img src="<%= @profile.foto.try(:url) %>" alt="" width="300" height="300">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre" placeholder="Nombre perfil" value="<%=@profile.nombre%>">
+      <label for="nombre">Nome:</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nome do usuario" value="<%=@profile.nombre%>">
     </div>
     <div class="form-group col-md-6">
-      <label for="apellido">Apellido:</label>
-      <input type="text" class="form-control" id="apellido" placeholder="Apellido" value="<%=@profile.apellido%>">
+      <label for="apellido">Sobrenome:</label>
+      <input type="text" class="form-control" id="apellido" placeholder="Sobrenome" value="<%=@profile.apellido%>">
     </div>
   </div>
   <div class="form-group">
-    <label for="direccion">Dirección:</label>
-    <input type="text" class="form-control" id="direccion" placeholder="1234 Main St" value="<%=@profile.direccion%>">
+    <label for="direccion">Endereço:</label>
+    <input type="text" class="form-control" id="direccion"  value="<%=@profile.direccion%>">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="ciudad">Ciudad:</label>
+      <label for="ciudad">Cidade:</label>
       <input type="text" class="form-control" id="ciudad" value="<%=@profile.ciudad%>">
     </div>
     <div class="form-group col-md-4">
-      <label for="estado">State</label>
+      <label for="estado">Estado</label>
       <input type="text" class="form-control" id="estado" value="<%=@profile.estado%>">
     </div>
     <div class="form-group col-md-2">
-      <label for="zip">Código Postal:</label>
+      <label for="zip">CEP:</label>
       <input type="text" class="form-control" id="zip" value="<%=@profile.zip%>">
     </div>
   </div>
   <%=link_to "Editar perfil", edit_profile_path(@profile), {class: "btn btn-info"} %>
 </form>
+</div>
+</div>

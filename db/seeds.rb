@@ -2,7 +2,9 @@
 
 #User.create([{email:'kenia@gmail.com',password:'123456'}])
 Genero.create([{genero:'Feminino'},{genero:'Masculino'}])
-Efeitocolateral.create([{descricao:'Sonolência'},{descricao:'Fome'},{descricao:'Dor de Cabeça'},{descricao:'Tremor'},{descricao:'Tontura'}])
+Efeitocolateral.create([{descricao:'Sonolência'},{descricao:'Fome'},{descricao:'Dor de Cabeça'},{descricao:'Tremor'},{descricao:'Tontura'},
+{descricao:'Náusea'},{descricao:'Desorientação'},{descricao:'Irritabilidade'}, {descricao:'Fadiga'},
+{descricao:'Angústia'}, {descricao:'Insônia'])
 Tipo.create([{descricao:'Óleo'},{descricao:'Spray'},{descricao:'Pomada'}])
 Administracao.create([{descricao:'Oral'},{descricao:'Nasal'},{descricao:'Pele'}])
 

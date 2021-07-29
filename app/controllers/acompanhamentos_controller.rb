@@ -22,7 +22,7 @@ class AcompanhamentosController < ApplicationController
     add_breadcrumb "Meus acompanhamentos", acompanhamentos_path, :title => "Voltar para a Página principal"
     add_breadcrumb "Exibindo acompanhamento"
     @acompanhamento = Acompanhamento.find(params[:id])
-    @diarios = Diario.where("acompanhamento_id =:acompanhamento_id",{acompanhamento_id:params[:id]}).all
+    @diarios = Diario.where("acompanhamento_id =:acompanhamento_id",{acompanhamento_id:params[:id]}).all.paginate(:page => params[:page], :per_page => 6)
   end
 
   def create
@@ -31,7 +31,7 @@ class AcompanhamentosController < ApplicationController
 
     respond_to do |format|
       if @acompanhamento.save
-        format.html { redirect_to "/acompanhamentos/"+ @acompanhamento.id.to_s , notice: 'O acompnhamento foi incluido com sucesso!'}
+        format.html { redirect_to "/acompanhamentos/"+ @acompanhamento.id.to_s , notice: 'O acompanhamento foi incluído com sucesso!'}
         format.json { head :no_content }
       else
         format.json { render json: @acompanhamento.errors.full_messages, status: :unprocessable_entity }
@@ -62,10 +62,12 @@ class AcompanhamentosController < ApplicationController
   end
 
   def finalizar
+
+    @acompanhamento  = Acompanhamento.find(params[:id])
     respond_to do |format|
       data_de_hoje =  Date.today
       if @acompanhamento.update(fim_tratamento:data_de_hoje)
-        format.html { redirect_to acompanhamentos_url }
+        format.html { redirect_to acompanhamentos_url, notice: 'O acompanhamento foi finalizado com sucesso!'}
         format.json { head :no_content }
       else
         format.json { render json: @acompanhamento.errors.full_messages, status: :unprocessable_entity }

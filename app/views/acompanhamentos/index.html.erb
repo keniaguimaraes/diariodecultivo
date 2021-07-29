@@ -12,7 +12,6 @@
     <table class="table table-bordered" id="tablaacompanhamento" width="100%" cellspacing="0">
         <thead>
         <tr>
-            
             <th>Paciente</th>
             <th>Remedio</th>
             <th>Tipo</th>
@@ -30,17 +29,34 @@
                 <td><%= prod.inicio_tratamento.strftime("%d/%m/%Y") %></td>
                 <td><%= prod.fim_tratamento %></td>
                 <td>
-                <%= link_to 'Detalhes', acompanhamento_path(prod), {class: "btn btn-info btn-xs"} %> 
-                <%= link_to "Editar", edit_acompanhamento_path(prod), html_options = {class: "btn btn-warning btn-xs", remote: true} %>
-                <%= link_to "Deletar", prod, remote: true, method: :delete, data: { confirm: "Deletar: #{prod.paciente}?"}, class: "btn btn-danger btn-xs" %>
+                    <%= link_to  acompanhamento_path(prod), html_options = {class: "btn btn-default" }  do %>
+                      <i class="fas fa-info fa-1x" data-toggle="tooltip" data-placement="top" title="Detalhes"></i> 
+                    <%end%>
+
+                    <%= link_to edit_acompanhamento_path(prod), html_options = {class: "btn btn-default", remote: true}  do %>
+                      <i class="fas fa-edit fa-1x" data-toggle="tooltip" data-placement="top" title="Editar"></i>
+                    <%end%>
+                    
+                    <%= link_to finalizar_acompanhamento_path(prod), html_options = {class: "btn btn-default"}  do %>
+                      <i class="fas fa-ban fa-1x" data-toggle="tooltip" data-placement="top" title="Finalizar"></i>
+                    <%end%>
+
+                    <%= link_to '<i class="fas fa-trash-alt fa-1x" data-toggle="tooltip" data-placement="top" title="Excluir"></i>'.html_safe, prod, remote: true, method: :delete, data: { confirm: "Deletar: #{prod.paciente}?"}, class: "btn btn-default" %>
                 </td>
             </tr>
             <% end %>
         </tbody>
+        
     </table>
     </div>
   </div>
 </div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
 <%= render 'modal_acompanhamentos' %>
 
 

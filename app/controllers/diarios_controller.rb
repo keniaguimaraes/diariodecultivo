@@ -66,6 +66,9 @@ class DiariosController < ApplicationController
     end
   end
 
+  def relatorio
+
+  end  
 
   private 
     def diario_params
