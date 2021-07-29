@@ -9,11 +9,11 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <%= f.label :nombre %>
+      <%= f.label :nombre,  "Nome: "%>
       <%= f.text_field :nombre, class: "form-control" %>
     </div>
     <div class="form-group col-md-6">
-    <%= f.label :apellido %>
+    <%= f.label :apellido,  "Apelido: "%>
     <%= f.text_field :apellido, class: "form-control" %>
     </div>
   </div>
@@ -23,19 +23,19 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-    <%= f.label :ciudad %>
+    <%= f.label :ciudad,  "Cidade: "%>
     <%= f.text_field :ciudad, class: "form-control" %>
     </div>
     <div class="form-group col-md-4">
-        <%= f.label :estado %>
+        <%= f.label :estado,  "Estado:  %>
         <%= f.text_field :estado, class: "form-control" %>
     </div>
     <div class="form-group col-md-2">
-        <%= f.label :zip %>
+        <%= f.label :zip,  "CEP"  %>
         <%= f.text_field :zip, class: "form-control" %>
     </div>
     <div class="form-group col-md-2">
-        <%= f.submit "Actualizar", class: "btn btn-warning form-control" %>
+        <%= f.submit "Atualizar", class: "btn btn-warning form-control" %>
     </div>
   </div>
 <% end %>
